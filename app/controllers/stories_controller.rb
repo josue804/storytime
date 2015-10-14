@@ -9,6 +9,13 @@ class StoriesController < ApplicationController
   def new
     @image = Image.find(params[:image_id])
     @story = Story.new
+    if params[:image_show]
+      respond_to do |format|
+        format.js
+      end
+    else
+      render :new
+    end
   end
 
   def create
@@ -16,7 +23,7 @@ class StoriesController < ApplicationController
     @story = @image.stories.new(story_params)
     @story.user = current_user
     if @story.save
-      redirect_to root_path
+      redirect_to image_path(@image)
     else
       render :new
     end

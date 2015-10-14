@@ -16,3 +16,26 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+p {
+  font-size: 1.4em;
+}
+
+.big-img {
+  max-width: 960px;
+  max-height: 960px;
+}
+
+.thumbnail {
+  max-width: 180px;
+  max-height: 180px;
+}
+
+.img-tile {
+  height: 250px;
+  width: 250px;
+}
+
+.panel {
+  margin-top: 2%;
+}

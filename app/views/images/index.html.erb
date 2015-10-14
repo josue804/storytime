@@ -1,0 +1,37 @@
+<%= will_paginate @images, renderer: BootstrapPagination::Rails %>
+
+<!-- <div class="row">
+  <% @images.each do |image| %>
+    <%= link_to image_path(image) do %>
+      <div class="col-md-3 img-tile">
+        <%= image_tag(image.url, class: "thumbnail") %>
+      </div>
+    <% end %>
+  <% end %>
+</div> -->
+
+<h1>Sup</h1>
+<%= link_to "New Story", new_image_story_path(Image.all.sample) %>
+
+<% @images.each do |image| %>
+  <div class="row">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <%= link_to image_path(image) do %>
+        <div class="col-md-2">
+          <div style="float: left">
+            <%= image_tag(image.url, class: "thumbnail") %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <% image.stories.each do |story| %>
+            <p><%= story.body %><span style="color:#999;"> ~ <%= story.user.name %></span></p>
+          <% end %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<%= will_paginate @images, renderer: BootstrapPagination::Rails %>

@@ -1,0 +1,30 @@
+
+
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <%= image_tag(@image.url, class: "big-img") %>
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="panel panel-default col-md-10">
+    <div class="panel-body">
+      <% @image.stories.each do |story| %>
+        <p>
+          <%= story.body %> <em style="color: #999;">~ <%= story.user.name %></em></span>
+        </p>
+      <% end %>
+    </div>
+
+  </div>
+
+</div>
+<div class="row">
+  <div id="form-div">
+  </div>
+  <div class="row col-md-12 text-align" style="margin-bottom:5%;margin-top:1%;">
+    <%= button_to "New Story", new_image_story_path(@image, image_show: true), method: "get", remote: true, class: "btn btn-default" %>
+  </div>
+</div>

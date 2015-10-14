@@ -15,15 +15,28 @@ gallery = JSON.parse(open('http://imgur.com/gallery.json').read)["data"]
 # construct URLs
 gallery.each {|i| i['url'] = "http://imgur.com/#{i['hash']}#{i['ext']}" }
 
+
 # select images that aren't too big
-gallery.select {|i| i['size'] < 200_000 }
+# gallery.select {|i| i['size'] < 200_000 }
 # or images that aren't too small
-gallery.select {|i| i['width'] > 400 && i['height'] > 400 }
+# gallery = gallery.select {|i| i['width'] > 400 && i['height'] > 400 }
 
 # select only PNG images
-gallery.select {|i| i['ext'] == '.png'}
+gallery = gallery.select {|i| i['ext'] != '.gif'}
 
-#create image url
-1000.times do
-  Image.create!(url: gallery.sample['url'])
+# create image url
+# 1000.times do
+#   Image.create!(url: gallery.sample['url'])
+# end
+
+for i in 0..(gallery.length - 1)
+  Image.create!(url: gallery[i]['url'])
 end
+
+
+
+# for i in 0..10000
+#
+#
+#   Image.create!(url: "http://imgur.com/#{rand(1e9).to_s(36)[0,6]}.png")
+# end
