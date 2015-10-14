@@ -10,6 +10,8 @@ gem 'turbolinks'
 gem 'bootstrap-sass', '~> 3.3.5'
 gem 'devise'
 gem 'json'
+gem 'will_paginate'
+gem 'will_paginate-bootstrap'
 
 group :development do
   gem 'byebug'

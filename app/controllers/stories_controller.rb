@@ -3,8 +3,7 @@ class StoriesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :destroy, :edit, :update]
 
   def index
-    @stories = Story.all.sort_by &:created_at
-    @stories.reverse!
+    @stories = Story.all.order(:created_at => :desc).paginate(:page => params[:page],:per_page => 5)
   end
 
   def new
@@ -17,7 +16,7 @@ class StoriesController < ApplicationController
     @story = @image.stories.new(story_params)
     @story.user = current_user
     if @story.save
-      redirect_to image_story_path(@image.id, @story.id)
+      redirect_to root_path
     else
       render :new
     end
