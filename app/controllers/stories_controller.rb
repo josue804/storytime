@@ -3,7 +3,8 @@ class StoriesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :destroy, :edit, :update]
 
   def index
-    @stories = Story.all
+    @stories = Story.all.sort_by &:created_at
+    @stories.reverse!
   end
 
   def new
