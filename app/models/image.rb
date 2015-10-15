@@ -3,4 +3,11 @@ class Image < ActiveRecord::Base
 
   has_many :stories
 
+  def stories_created_at
+    if stories.last != nil
+      stories.last.created_at
+    end
+    0
+  end
+
 end

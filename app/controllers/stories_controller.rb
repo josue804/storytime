@@ -1,6 +1,6 @@
 class StoriesController < ApplicationController
   before_action :find_story, except: [:new, :create, :index]
-  before_action :authenticate_user!, only: [:new, :create, :destroy, :edit, :update]
+  before_action :authenticate_user!, only: [:create, :new, :destroy, :edit, :update]
 
   def index
     @stories = Story.all.order(:created_at => :desc).paginate(:page => params[:page],:per_page => 5)
@@ -13,8 +13,6 @@ class StoriesController < ApplicationController
       respond_to do |format|
         format.js
       end
-    else
-      render :new
     end
   end
 
