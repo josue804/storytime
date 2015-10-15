@@ -1,0 +1,16 @@
+Is the Github documentation - commits and README - thorough and descriptive?
+The README is lacking.  The project needs more commits and the description should be intuitive.  Ex. "add cr for stories".  What is "cr"?
+Is there good spec coverage?
+The spec coverage seems pretty good; although, i'm not sure if I saw a integration spec.
+Do all specs pass? 5 Pending Specs
+Is the application logic clear and easy to navigate?
+Yes, the logic makes sense to me.
+Can you make a test payment through Stripe? No, not available.  Which is a shame, becuase I want to pay for the service.
+Is the site user-friendly?
+Fairly user friendly.
+Are there opportunities for refactoring? I think the code is pretty concise.
+What features stand out? It's pretty cool that you were able to go into imgur and grab a bunch of pictures from them and seed the database with them.
+What features could be improved?
+I don't really see this as a story time builder but more of a image website with comments.  It would be cool to have the comments arrange in a typical story form with a paragraph and such.
+It seems that when you create a new story.  The picture with that story does not get saved.  I recieved a random picture.  When I added a contribution to the story, the correct picture was saved.
+Do you have any additional constructive criticism or positive feedback to share?
