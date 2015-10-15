@@ -1,7 +1,7 @@
 <%= will_paginate @images, renderer: BootstrapPagination::Rails %>
 
-<h1>Sup</h1>
-<%= link_to "New Story", new_image_story_path(Image.all.sample) %>
+<h1>Most Recent Best Sellers</h1>
+<%= link_to "New Contribution", new_image_contribution_path(Image.all.sample) %>
 
 <% @images.each do |image| %>
   <div class="row">
@@ -14,8 +14,8 @@
           </div>
         </div>
         <div class="col-md-6">
-          <% image.stories.each do |story| %>
-            <p><%= story.body %><span style="color:#999;"> ~ <%= story.user.name %></span></p>
+          <% image.contributions.each do |contribution| %>
+            <p><%= contribution.body %><span style="color:#999;"> ~ <%= contribution.user.name %></span></p>
           <% end %>
         </div>
         <% end %>

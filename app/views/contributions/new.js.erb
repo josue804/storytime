@@ -1,4 +1,4 @@
 <% if user_signed_in? %>
 $('#form-div').html('<%= escape_javascript(render "form") %>');
-
+$('.new-contribution').hide();
 <% end %>

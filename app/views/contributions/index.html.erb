@@ -1,0 +1,24 @@
+<h1>Most Recent Best Sellers</h1>
+<%= link_to "New Contribution", new_image_contribution_path(Image.all.sample) %>
+
+<% @contributions.each do |contribution| %>
+  <div class="row">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="col-md-2">
+          <div style="float: left">
+            <%= image_tag(contribution.image.url, class: "thumbnail") %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <h3><%= contribution.body %></h3>
+        </div>
+      </div>
+      <div class="panel-heading" style="text-align: right">
+        <%= contribution.user.name %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<%= will_paginate @contributions, renderer: BootstrapPagination::Rails %>

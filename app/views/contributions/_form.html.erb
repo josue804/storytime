@@ -1,0 +1,10 @@
+<%= form_for [@image, @contribution] do |f| %>
+
+  <div class="form-group" style="margin-top: 2%;">
+    <%= f.label "Add a line to this cool contribution" %>
+    <%= f.text_field :body, class: "form-control" %>
+    <%= hidden_field_tag :story_id, @story.id  %>
+
+  </div>
+  <%= f.submit "Post your contribution", class: "btn btn-info" %>
+<% end %>

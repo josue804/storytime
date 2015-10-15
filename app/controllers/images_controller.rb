@@ -3,8 +3,8 @@ class ImagesController < ApplicationController
   before_action :find_image, except: [:new, :create, :index]
 
   def index
-    @stories = Story.all
-    @images = Image.all.sort_by(&:stories_created_at).reverse.paginate(:page => params[:page],:per_page => 20)  
+    @contributions = Contribution.all
+    @images = Image.all.sort_by(&:contributions_created_at).reverse.paginate(:page => params[:page],:per_page => 20)
   end
 
   def new
@@ -16,7 +16,6 @@ class ImagesController < ApplicationController
   end
 
   def show
-
   end
 
   def edit

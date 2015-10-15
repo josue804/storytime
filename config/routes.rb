@@ -1,13 +1,16 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  root 'images#index'
+  root 'stories#index'
 
   resources :images do
-    resources :stories
+    resources :contributions
   end
   resources :users do
-    resources :stories
+    resources :contributions
   end
-  
+  resources :stories do
+    resources :contributions
+  end
+
 end

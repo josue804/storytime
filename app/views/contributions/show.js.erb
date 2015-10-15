@@ -1,0 +1,1 @@
+$('#contribution-<%= params[:id] %>').html('<%= escape_javascript( image_tag(Image.find(params[:image_id]).url, class: "thumbnail" ) ) %>').toggle();

@@ -1,6 +1,6 @@
-class CreateStories < ActiveRecord::Migration
+class CreateContributions < ActiveRecord::Migration
   def change
-    create_table :stories do |t|
+    create_table :contributions do |t|
       t.column :body, :string
       t.column :user_id, :integer
       t.column :image_id, :integer

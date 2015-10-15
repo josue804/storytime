@@ -7,24 +7,10 @@
 </div>
 
 <div class="row">
-
-  <div class="panel panel-default col-md-10">
-    <div class="panel-body">
-      <% @image.stories.each do |story| %>
-        <p>
-          <%= story.body %> <em style="color: #999;">~ <%= story.user.name %></em></span>
-        </p>
-      <% end %>
-    </div>
-
-  </div>
-
-</div>
-<div class="row">
   <div id="form-div">
   </div>
     <% if user_signed_in? %>
-      <%= button_to "New Story", new_image_story_path(@image, image_show: true), method: "get", remote: true, class: "btn btn-default" %>
+      <%= button_to "New Contribution", new_image_contribution_path(@image, image_show: true), method: "get", remote: true, class: "btn btn-default new-contribution" %>
     <% else %>
       <%= link_to "Sign In to Post", user_session_path, method: "get", class: "btn btn-default" %>
     <% end %>

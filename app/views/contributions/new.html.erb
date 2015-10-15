@@ -1,0 +1,16 @@
+<% @story.contributions.each do |contribution|%>
+  <p>
+    <%= link_to image_contribution_path(contribution.image, contribution), method: "get", remote: true do %>
+      <%= contribution.body %> <em style="color: #999;">~ <%= contribution.user.name %></em>
+    <% end %>
+  </p>
+  <div id="contribution-<%= contribution.id %>" style="display:none;">
+
+  </div>
+<% end %>
+
+<hr>
+<h4>For Further Inspiration...</h4>
+<%= image_tag (@image.url), class: "big-img" %>
+
+<%= render 'contributions/form' %>

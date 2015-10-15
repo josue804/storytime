@@ -1,21 +1,25 @@
-<h1>Sup</h1>
-<%= link_to "New Story", new_image_story_path(Image.all.sample) %>
+<%= will_paginate @stories, renderer: BootstrapPagination::Rails %>
+
+<h1>Neverending Stories</h1>
+<%= link_to "New Story", new_story_path(image: Image.all.sample), class: "btn btn-default" %>
+<% if Story.all.any? %>
+  &nbsp;
+  <%= link_to "Random Story", new_story_contribution_path(Story.all.sample.id, image: Image.all.sample), class: "btn btn-default" %>
+<% end %>
 
 <% @stories.each do |story| %>
   <div class="row">
     <div class="panel panel-default">
       <div class="panel-body">
+        <%= link_to story_path(story) do %>
         <div class="col-md-2">
-          <div style="float: left">
-            <%= image_tag(story.image.url, class: "thumbnail") %>
-          </div>
         </div>
         <div class="col-md-6">
-          <h3><%= story.body %></h3>
+          <% story.contributions.each do |contribution| %>
+            <p><%= contribution.body %><span style="color:#999;"> ~ <%= contribution.user.name %></span></p>
+          <% end %>
         </div>
-      </div>
-      <div class="panel-heading" style="text-align: right">
-        <%= story.user.name %>
+        <% end %>
       </div>
     </div>
   </div>

@@ -1,11 +1,11 @@
 class Image < ActiveRecord::Base
   validates :url, presence: true
 
-  has_many :stories
+  has_many :contributions
 
-  def stories_created_at
-    if stories.last != nil
-      stories.last.created_at
+  def contributions_created_at
+    if contributions.last != nil
+      contributions.last.created_at
     end
     0
   end
